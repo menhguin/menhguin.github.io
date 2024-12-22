@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Blake Portfolio</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+    <style>
+        /* Base styles incorporating your Tailwind colors */
+        :root {
+            --dark-blue: #022859;
+            --light-blue: #F0F4F8;
+            --dark-gray: #333333;
+            --light-gray: #E0E0E0;
+            --steel-blue: #B0C4DE;
+            --slate-gray: #708090;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-blue);
+            color: var(--dark-gray);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jordan Blake</h1>
+            <!-- Add your navigation here -->
+        </header>
+
+        <main>
+            <!-- Add your main content here -->
+            <section id="about">
+                <h2>About Me</h2>
+                <!-- Add about content -->
+            </section>
+
+            <section id="projects">
+                <h2>Projects</h2>
+                <!-- Add projects content -->
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <!-- Add contact content -->
+            </section>
+        </main>
+
+        <footer>
+            <!-- Add your footer content -->
+        </footer>
+    </div>
+
+    <script>
+        // Your GSAP animations
+        gsap.from("h1", {
+            duration: 1,
+            y: -50,
+            opacity: 0,
+            ease: "power3.out"
+        });
+
+        gsap.from("section", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+</html> 
