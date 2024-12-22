@@ -40,54 +40,163 @@
             padding: 2rem;
         }
 
-        /* Add your custom styles here */
+        /* Hero Section Styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            opacity: 0;
+        }
+
+        .hero-text {
+            font-size: 1.5rem;
+            color: var(--slate-gray);
+            max-width: 32rem;
+            margin-top: 1rem;
+            opacity: 0;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+            opacity: 0;
+        }
+
+        .hero-cta a {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta a:hover {
+            opacity: 0.9;
+        }
+
+        .hero-bg {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        .hero-bg-circle {
+            width: 24rem;
+            height: 24rem;
+            background-color: rgba(176, 196, 222, 0.2);
+            border-radius: 50%;
+            filter: blur(64px);
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 6rem;
+            }
+            .hero-text {
+                font-size: 1.75rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Jordan Blake</h1>
-            <!-- Add your navigation here -->
-        </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title" id="hero-title">Jordan Blake</h1>
+            <p class="hero-text" id="hero-text">
+                Creative Developer & Digital Craftsman
+            </p>
+            <div class="hero-cta" id="hero-cta">
+                <a href="#work">View My Work</a>
+            </div>
+        </div>
+        <div class="hero-bg" id="hero-bg">
+            <div class="hero-bg-circle"></div>
+        </div>
+    </section>
 
-        <main>
-            <!-- Add your main content here -->
-            <section id="about">
-                <h2>About Me</h2>
-                <!-- Add about content -->
-            </section>
+    <!-- Projects Section -->
+    <section id="work" class="container">
+        <h2 class="project-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <!-- Project cards will be animated in -->
+        </div>
+    </section>
 
-            <section id="projects">
-                <h2>Projects</h2>
-                <!-- Add projects content -->
-            </section>
-
-            <section id="contact">
-                <h2>Contact</h2>
-                <!-- Add contact content -->
-            </section>
-        </main>
-
-        <footer>
-            <!-- Add your footer content -->
-        </footer>
-    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <!-- Contact content will be animated in -->
+        </div>
+    </section>
 
     <script>
-        // Your GSAP animations
-        gsap.from("h1", {
+        // Hero Animations
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        // Animate hero elements
+        tl.to("#hero-bg", {
+            opacity: 1,
+            duration: 1.5,
+        })
+        .from("#hero-bg", {
+            scale: 0.8,
+            duration: 1.5,
+        }, "<")
+        .to("#hero-title", {
+            opacity: 1,
+            y: 0,
             duration: 1,
-            y: -50,
-            opacity: 0,
-            ease: "power3.out"
+        }, "-=1")
+        .from("#hero-title", {
+            y: 100,
+        }, "<")
+        .to("#hero-text", {
+            opacity: 1,
+            duration: 1,
+        }, "-=0.5")
+        .from("#hero-text", {
+            y: 50,
+        }, "<")
+        .to("#hero-cta", {
+            opacity: 1,
+            duration: 1,
+        }, "-=0.5")
+        .from("#hero-cta", {
+            y: 30,
+        }, "<");
+
+        // Floating animation for background
+        gsap.to("#hero-bg", {
+            y: 30,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "power1.inOut"
         });
 
-        gsap.from("section", {
-            duration: 1,
+        // Scroll Animations
+        gsap.from(".project-title", {
+            scrollTrigger: {
+                trigger: ".project-title",
+                start: "top bottom",
+                end: "bottom top",
+                toggleActions: "play none none reverse"
+            },
             y: 50,
             opacity: 0,
-            stagger: 0.2,
-            ease: "power3.out"
+            duration: 1
         });
     </script>
 </body>
