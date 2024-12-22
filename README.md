@@ -1,4 +1,4 @@
-# Jordan Blake Portfolio
+# Jordan Blake Portfolio (look im still editing this ok)
 
 Personal portfolio website built with Astro, TailwindCSS, and GSAP.
 
