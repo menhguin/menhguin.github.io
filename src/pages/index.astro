@@ -1,11 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../components/Hero.astro'
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/sections/Hero.astro'
+import About from '@/sections/About.astro'
+import Skills from '@/sections/Skills.astro'
+import Projects from '@/sections/Projects.astro'
+import Contact from '@/sections/Contact.astro'
 ---
 
-<Layout title="Jordan Blake | Portfolio">
+<Layout title="Jordan Blake">
   <main>
     <Hero />
-    <!-- Add more sections here -->
+    <About />
+    <Skills />
+    <Projects />
+    <Contact />
   </main>
 </Layout>
